@@ -88,8 +88,24 @@ void handleTCP() {
             // Reset watchdog on every valid packet
             lastGCSPacketMs = millis();
 
+            // 0x02 ID starting to show that GSE packet 
+
             // --- Hex dump (debug) ---
             for (int i = 0; i < bytesRead; i++) {
+                if (buffer[i] == 0x02)
+                {
+                    // Call function to check bit values with hash map
+                    // Where function input variable will be key to hash map and hash map will return value that includes instructions
+                    // Input buffer[] and current index?
+
+                    // Check if (buffer[i+1] == flippedBits(buffer[i+2]))
+                    if (buffer[i+1] == (uint8_t)~buffer[i+2])    {
+                        
+                    }
+                    else    {
+                        Serial.println("Error, data byte and inverted byte don't match.");
+                    }
+                }
                 Serial.printf("%02X ", buffer[i]);
             }
             Serial.println();

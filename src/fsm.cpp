@@ -90,10 +90,12 @@ void switchState(int STATE, int ACTION, int* previousState, int* previousAction)
 //    TODO: Define the byte protocol with the GCS team and
 //    populate the decode logic below.
 // -----------------------------------------------------------
-// void GCScommand(GCSCommandMap command, int* previousState, int* previousAction) {
-//     int state  = STATE_standby; // TODO: decode from command map
-//     int action = ACT_neutral;   // TODO: decode from command map
+void GCScommand(GCSCommandMap command, int* previousState, int* previousAction) {
+    
+    // int state  = STATE_standby; // TODO: decode from command map
+    // int action = ACT_neutral;   // TODO: decode from command map
+    
 
-//     switchState(state, action, previousState, previousAction);
-//     Serial.println("GSE state changed to " + String(state));
-// }
+    switchState(state, action, previousState, previousAction);
+    Serial.println("GSE state changed to " + String(state));
+}
