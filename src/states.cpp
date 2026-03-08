@@ -13,4 +13,23 @@ using std::map;
 
 map<int, int> GCSCommandMap = { {}, {}, {}, {}, {}, {}, {}, {}  };
 
+/*
+System Standby Mode
+
+FIll Mode
+
+Fill->N2O
+
+Fill->Purge
+
+Launch Mode
+
+Launch->O2
+
+Launch->O2->Fire
+
+Estop
+
+*/
+
 // 0x

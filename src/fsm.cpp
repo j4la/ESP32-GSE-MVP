@@ -8,6 +8,7 @@
 #include "fsm.h"
 #include "actuators.h"
 #include "config.h"
+#include "states.h"
 
 // Global FSM state (initialised in main.cpp setup())
 int STATE_current = STATE_standby;
