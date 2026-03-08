@@ -33,6 +33,7 @@ The possible states of the control pendant are:
 * Fire PWM:             LOW Pin      (Ignition Sparker Off)
 
 ## Fill Mode
+### Pin States:
 * N2O Fill:             LOW Pin      (Solenoid Closed)
 * Purge:                LOW Pin      (Solenoid Open)
 * O2 Fill:              LOW Pin      (Solenoid Closed)
@@ -40,6 +41,7 @@ The possible states of the control pendant are:
 * Fire PWM:             LOW Pin      (Ignition Sparker Off)
 
 ## Fill->N2O
+### Pin States:
 * N2O Fill:             HIGH Pin     (Solenoid Open)
 * Purge:                HIGH Pin     (Solenoid Closed)
 * O2 Fill:              LOW Pin      (Solenoid Closed)
@@ -47,6 +49,7 @@ The possible states of the control pendant are:
 * Fire PWM:             LOW Pin      (Ignition Sparker Off)
 
 ## Fill->Purge
+### Pin States:
 * N2O Fill:             LOW Pin      (Solenoid Closed)
 * Purge:                LOW Pin      (Solenoid Open)
 * O2 Fill:              LOW Pin      (Solenoid Closed)
@@ -54,6 +57,7 @@ The possible states of the control pendant are:
 * Fire PWM:             LOW Pin      (Ignition Sparker Off)
 
 ## Launch Mode
+### Pin States:
 * N2O Fill:             LOW Pin      (Solenoid Closed)
 * Purge:                HIGH Pin     (Solenoid Closed)
 * O2 Fill:              LOW Pin      (Solenoid Closed)
@@ -61,6 +65,7 @@ The possible states of the control pendant are:
 * Fire PWM:             LOW Pin      (Ignition Sparker Off)
 
 ## Launch->O2
+### Pin States:
 * N2O Fill:             LOW Pin      (Solenoid Closed)
 * Purge:                HIGH Pin     (Solenoid Closed)
 * O2 Fill:              HIGH Pin     (Solenoid Open)
@@ -68,6 +73,7 @@ The possible states of the control pendant are:
 * Fire PWM:             LOW Pin      (Ignition Sparker Off)
 
 ## Launch->O2->Fire
+### Pin States:
 * N2O Fill:             LOW Pin      (Solenoid Closed)
 * Purge:                HIGH Pin     (Solenoid Closed)
 * O2 Fill:              HIGH Pin     (Solenoid OPEN)
@@ -75,6 +81,7 @@ The possible states of the control pendant are:
 * Fire PWM:             HIGH Pin     (Ignition Sparker On)
 
 ## Estop
+### Pin States:
 * N2O Fill:             LOW Pin      (Solenoid Closed)
 * Purge:                LOW Pin      (Solenoid Open)
 * O2 Fill:              LOW Pin      (Solenoid Closed)
