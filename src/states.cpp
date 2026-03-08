@@ -5,7 +5,6 @@
 // ============================================================
 #include <Arduino.h>
 #include "states.h"
-// #include "network.h"
 #include "config.h"
 #include "actuators.h"
 #include <cstdint>
@@ -26,65 +25,65 @@ void executeCommand(command cmd)
 {
     switch (cmd) {
         case (command::STANDBY):
-                set_n2oValve(false);
-                set_purge(false);
-                set_o2Valve(false);
-                set_fire(false);
-                set_firePWM(false);
+                set_n2oValve(DEACTIVATE_PIN);
+                set_purge(DEACTIVATE_PIN);
+                set_o2Valve(DEACTIVATE_PIN);
+                set_fire(DEACTIVATE_PIN);
+                set_firePWM(DEACTIVATE_PIN);
             break;
 
         case (command::FILL):
-                set_n2oValve(false);
-                set_purge(false);
-                set_o2Valve(false);
-                set_fire(false);
-                set_firePWM(false);
+                set_n2oValve(DEACTIVATE_PIN);
+                set_purge(DEACTIVATE_PIN);
+                set_o2Valve(DEACTIVATE_PIN);
+                set_fire(DEACTIVATE_PIN);
+                set_firePWM(DEACTIVATE_PIN);
             break;
         case (command::FILL_N2O):
-                set_n2oValve(true);
-                set_purge(true);
-                set_o2Valve(false);
-                set_fire(false);
-                set_firePWM(false);
+                set_n2oValve(ACTIVATE_PIN);
+                set_purge(ACTIVATE_PIN);
+                set_o2Valve(DEACTIVATE_PIN);
+                set_fire(DEACTIVATE_PIN);
+                set_firePWM(DEACTIVATE_PIN);
             break;
         case (command::FILL_PURGE):
-                set_n2oValve(false);
-                set_purge(false);
-                set_o2Valve(false);
-                set_fire(false);
-                set_firePWM(false);
+                set_n2oValve(DEACTIVATE_PIN);
+                set_purge(DEACTIVATE_PIN);
+                set_o2Valve(DEACTIVATE_PIN);
+                set_fire(DEACTIVATE_PIN);
+                set_firePWM(DEACTIVATE_PIN);
 
             break;
         case (command::LAUNCH):
-                set_n2oValve(false);
-                set_purge(true);
-                set_o2Valve(false);
-                set_fire(false);
-                set_firePWM(false);
+                set_n2oValve(DEACTIVATE_PIN);
+                set_purge(ACTIVATE_PIN);
+                set_o2Valve(DEACTIVATE_PIN);
+                set_fire(DEACTIVATE_PIN);
+                set_firePWM(DEACTIVATE_PIN);
 
             break;
         case (command::LAUNCH_O2):
-                set_n2oValve(false);
-                set_purge(true);
-                set_o2Valve(true);
-                set_fire(false);
-                set_firePWM(false);
+                set_n2oValve(DEACTIVATE_PIN);
+                set_purge(ACTIVATE_PIN);
+                set_o2Valve(ACTIVATE_PIN);
+                set_fire(DEACTIVATE_PIN);
+                set_firePWM(DEACTIVATE_PIN);
 
             break;
         case (command::LAUNCH_O2_FIRE):
-                set_n2oValve(false);
-                set_purge(true);
-                set_o2Valve(true);
-                set_fire(true);
+                set_n2oValve(DEACTIVATE_PIN);
+                set_purge(ACTIVATE_PIN);
+                set_o2Valve(ACTIVATE_PIN);
+                set_fire(ACTIVATE_PIN);
                 attemptIgnition();
                 // set_firePWM(false);
             break;
         case (command::ESTOP):
-                set_n2oValve(false);
-                set_purge(false);
-                set_o2Valve(false);
-                set_fire(false);
-                set_firePWM(false);
+                set_n2oValve(DEACTIVATE_PIN);
+                set_purge(DEACTIVATE_PIN);
+                set_o2Valve(DEACTIVATE_PIN);
+                set_fire(DEACTIVATE_PIN);
+                set_firePWM(DEACTIVATE_PIN);
 
             break;
 
