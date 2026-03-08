@@ -16,7 +16,7 @@ map<int, int> GCSCommandMap = { {}, {}, {}, {}, {}, {}, {}, {}  };
 /*
 System Standby Mode
 
-FIll Mode
+Fill Mode
 
 Fill->N2O
 
