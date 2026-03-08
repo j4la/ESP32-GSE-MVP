@@ -5,9 +5,6 @@
 //  FSM state IDs, action IDs, and the GCS command map type.
 // ============================================================
 
-#include <map>
-// using std::map;
-
 // --- FSM States ---
 enum State {
     STATE_standby    = 0,
@@ -23,8 +20,3 @@ enum Action {
     ACT_fire    = 3,
     ACT_O2      = 4,
 };
-
-// --- GCS command map type ---
-//  Key   = command byte identifier (TODO: define once GCS protocol is finalised)
-//  Value = encoded (state << 8 | action) or a dedicated struct — see notes.
-// using GCSCommandMap = map<int, int>;
