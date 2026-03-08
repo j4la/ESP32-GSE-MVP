@@ -40,9 +40,9 @@ The possible states of the control pendant are:
 ### Instruction Byte
 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 |---|---|---|---|---|---|---|---|
-| 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 |
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
 
-Hex: 0x21
+Hex: 0x01
 
 ## Fill Mode
 ### Pin States:
@@ -54,9 +54,9 @@ Hex: 0x21
 ### Instruction Byte
 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 |---|---|---|---|---|---|---|---|
-| 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 |
+| 0 | 0 | 1 | 0 | 0 | 0 | 1 | 1 |
 
-Hex: 0x03
+Hex: 0x23
 
 ## Fill->N2O
 ### Pin States:
