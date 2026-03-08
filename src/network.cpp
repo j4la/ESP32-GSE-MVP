@@ -11,6 +11,7 @@
 #include "config.h"
 #include "fsm.h"
 #include "actuators.h"
+#include "states.h"
 
 WiFiServer server(TCP_PORT);
 
@@ -90,29 +91,24 @@ void handleTCP() {
 
             // 0x02 ID starting to show that GSE packet 
 
+            // Should I do this inside a loop because index 0 might not be the first byte?
+            if (buffer[0] == 0x02)
+            {
+                // Check if (buffer[i+1] == flippedBits(buffer[i+2]))
+                if (buffer[1] == (uint8_t)~buffer[2])    {
+                    executeCommand(buffer[1]);
+                }
+                else    {
+                    Serial.println("Error, data byte and inverted byte don't match.");
+                }
+            }
+
             // --- Hex dump (debug) ---
             for (int i = 0; i < bytesRead; i++) {
-                if (buffer[i] == 0x02)
-                {
-                    // Call function to check bit values with hash map
-                    // Where function input variable will be key to hash map and hash map will return value that includes instructions
-                    // Input buffer[] and current index?
 
-                    // Check if (buffer[i+1] == flippedBits(buffer[i+2]))
-                    if (buffer[i+1] == (uint8_t)~buffer[i+2])    {
-                        
-                    }
-                    else    {
-                        Serial.println("Error, data byte and inverted byte don't match.");
-                    }
-                }
                 Serial.printf("%02X ", buffer[i]);
             }
             Serial.println();
-
-            // TODO: Decode buffer into a GCSCommandMap and call:
-            // GCSCommandMap cmd = decodePacket(buffer, bytesRead);
-            // GCScommand(cmd, &STATE_current, &ACT_current);
         }
     }
 

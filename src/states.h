@@ -5,6 +5,8 @@
 //  FSM state IDs, action IDs, and the GCS command map type.
 // ============================================================
 
+void executeCommand(command cmd);
+
 // --- FSM States ---
 enum State {
     STATE_standby    = 0,

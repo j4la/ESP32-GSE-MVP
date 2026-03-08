@@ -22,7 +22,7 @@ enum class command : uint8_t {
     ESTOP           = 0x00
 };
 
-void executeCommand(command cmd, int *newState, int *newAction)
+void executeCommand(command cmd)
 {
     switch (cmd) {
         case (command::STANDBY):
@@ -30,6 +30,7 @@ void executeCommand(command cmd, int *newState, int *newAction)
                 set_purge(false);
                 set_o2Valve(false);
                 set_fire(false);
+                set_firePWM(false);
                 // set pwm pin LOW
             break;
 
