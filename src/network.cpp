@@ -9,7 +9,6 @@
 #include <WiFiServer.h>
 #include "network.h"
 #include "config.h"
-#include "fsm.h"
 #include "actuators.h"
 #include "states.h"
 
@@ -96,7 +95,11 @@ void handleTCP() {
             {
                 // Check if (buffer[i+1] == flippedBits(buffer[i+2]))
                 if (buffer[1] == (uint8_t)~buffer[2])    {
-                    executeCommand(buffer[1]);
+                    executeCommand(static_cast<command>(buffer[1]));
+                    if (static_cast<command>(buffer[1]) == command::FILL_PURGE)
+                    {
+                        // Do we want a delay here? or should purge be a constant state
+                    }
                 }
                 else    {
                     Serial.println("Error, data byte and inverted byte don't match.");

@@ -8,7 +8,6 @@
 #include "config.h"
 #include "states.h"
 #include "actuators.h"
-#include "fsm.h"
 #include "network.h"
 
 void setup() {
@@ -21,7 +20,7 @@ void setup() {
 
     // --- Safe / default state ---
     //  Purge open, all propellant valves closed.
-    switchState(STATE_standby, ACT_purge, &STATE_current, &ACT_current);
+    executeCommand(command::SYSTEM_ACTIVE);
 
     // --- Serial ---
     Serial.begin(SERIAL_BAUD);

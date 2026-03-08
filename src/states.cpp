@@ -9,19 +9,6 @@
 #include "actuators.h"
 #include <cstdint>
 
-// GCS Command
-enum class command : uint8_t {
-    SYSTEM_ACTIVE   = 0x01,
-    FILL            = 0x23,
-    FILL_N2O        = 0x13,
-    FILL_PURGE      = 0x83,
-    LAUNCH          = 0x05,
-    LAUNCH_O2       = 0x45,
-    LAUNCH_O2_FIRE  = 0x4D,
-    LAUNCH_FIRE     = 0x0D,
-    ESTOP           = 0x00
-};
-
 void executeCommand(command cmd)
 {
     switch (cmd) {
@@ -31,6 +18,7 @@ void executeCommand(command cmd)
                 set_o2Valve(DEACTIVATE_PIN);
                 set_fire(DEACTIVATE_PIN);
                 set_firePWM(DEACTIVATE_PIN);
+                Serial.println("\nSYSTEM_ACTIVE command from GCS run");
             break;
 
         case (command::FILL):
@@ -39,6 +27,7 @@ void executeCommand(command cmd)
                 set_o2Valve(DEACTIVATE_PIN);
                 set_fire(DEACTIVATE_PIN);
                 set_firePWM(DEACTIVATE_PIN);
+                Serial.println("\nFILL command from GCS run");
             break;
         case (command::FILL_N2O):
                 set_n2oValve(ACTIVATE_PIN);
@@ -46,6 +35,7 @@ void executeCommand(command cmd)
                 set_o2Valve(DEACTIVATE_PIN);
                 set_fire(DEACTIVATE_PIN);
                 set_firePWM(DEACTIVATE_PIN);
+                Serial.println("\nFILL_N2O command from GCS run");
             break;
         case (command::FILL_PURGE):
                 set_n2oValve(DEACTIVATE_PIN);
@@ -53,7 +43,7 @@ void executeCommand(command cmd)
                 set_o2Valve(DEACTIVATE_PIN);
                 set_fire(DEACTIVATE_PIN);
                 set_firePWM(DEACTIVATE_PIN);
-
+                Serial.println("\nFILL_PURGE command from GCS run");
             break;
         case (command::LAUNCH):
                 set_n2oValve(DEACTIVATE_PIN);
@@ -61,7 +51,7 @@ void executeCommand(command cmd)
                 set_o2Valve(DEACTIVATE_PIN);
                 set_fire(DEACTIVATE_PIN);
                 set_firePWM(DEACTIVATE_PIN);
-
+                Serial.println("\nLAUNCH command from GCS run");
             break;
         case (command::LAUNCH_O2):
                 set_n2oValve(DEACTIVATE_PIN);
@@ -69,7 +59,7 @@ void executeCommand(command cmd)
                 set_o2Valve(ACTIVATE_PIN);
                 set_fire(DEACTIVATE_PIN);
                 set_firePWM(DEACTIVATE_PIN);
-
+                Serial.println("\nLAUNCH_O2 command from GCS run");
             break;
         case (command::LAUNCH_O2_FIRE):
                 set_n2oValve(DEACTIVATE_PIN);
@@ -77,7 +67,7 @@ void executeCommand(command cmd)
                 set_o2Valve(ACTIVATE_PIN);
                 set_fire(ACTIVATE_PIN);
                 attemptIgnition();
-                // set_firePWM(false);
+                Serial.println("\nLAUNCH_O2_FIRE command from GCS run");
             break;
         case (command::LAUNCH_FIRE):
                 set_n2oValve(DEACTIVATE_PIN);
@@ -85,6 +75,7 @@ void executeCommand(command cmd)
                 set_o2Valve(DEACTIVATE_PIN);
                 set_fire(ACTIVATE_PIN);
                 attemptIgnition();
+                Serial.println("\nLAUNCH_FIRE command from GCS run");
             break;
 
         case (command::ESTOP):
@@ -93,29 +84,10 @@ void executeCommand(command cmd)
                 set_o2Valve(DEACTIVATE_PIN);
                 set_fire(DEACTIVATE_PIN);
                 set_firePWM(DEACTIVATE_PIN);
-
+                Serial.println("\nESTOP command from GCS run");
             break;
 
     }
         
     
 }
-
-/*
-System SYSTEM_ACTIVE Mode
-
-Fill Mode
-
-Fill->N2O
-
-Fill->Purge
-
-Launch Mode
-
-Launch->O2
-
-Launch->O2->Fire
-
-Estop
-
-*/

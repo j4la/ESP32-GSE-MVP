@@ -29,11 +29,11 @@
 
 // --- GPIO Pin Assignments ---
 //  TODO: Fill in correct pin numbers before flashing.
-const int GPIO_PIN_n2oValve = 10;
-const int GPIO_PIN_purge    = -1;   // TODO: assign pin
-const int GPIO_PIN_o2Valve  = 12;
-const int GPIO_PIN_fire     = -1;   // TODO: assign pin
-const int GPIO_PIN_firePWM  = -1;   // TODO: assign pin
+const int GPIO_PIN_n2oValve = 20;    // Check if Pin 5 or 10
+const int GPIO_PIN_purge    = 19;   // Check if Pin 5 or 10
+const int GPIO_PIN_o2Valve  = 16;
+const int GPIO_PIN_fire     = 15;
+const int GPIO_PIN_firePWM  = 10;
 
 // --- Solenoid logic helpers ---
 //  Pass these to the set_*() functions for readability.
