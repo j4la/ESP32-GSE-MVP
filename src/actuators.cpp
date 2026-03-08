@@ -15,23 +15,27 @@
 //      N2O    solenoid : CLOSED (HIGH opens it)
 // -----------------------------------------------------------
 
-void set_n2oValve(bool activate) {
+void inline set_n2oValve(bool activate) {
     // HIGH = open, LOW = closed
     digitalWrite(GPIO_PIN_n2oValve, activate ? HIGH : LOW);
 }
 
-void set_o2Valve(bool activate) {
+void inline set_o2Valve(bool activate) {
     // HIGH = open, LOW = closed
     digitalWrite(GPIO_PIN_o2Valve, activate ? HIGH : LOW);
 }
 
-void set_purge(bool activate) {
+void inline set_purge(bool activate) {
     // HIGH = closed, LOW = open  (inverted — normally-open valve)
     digitalWrite(GPIO_PIN_purge, activate ? HIGH : LOW);
 }
 
-void set_fire(bool activate) {
+void inline set_fire(bool activate) {
     digitalWrite(GPIO_PIN_fire, activate ? HIGH : LOW);
+}
+
+void inline set_firePWM(bool activate){
+    digitalWrite(GPIO_PIN_firePWM, activate ? HIGH : LOW);
 }
 
 // -----------------------------------------------------------
