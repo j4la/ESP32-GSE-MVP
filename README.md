@@ -25,6 +25,10 @@ Based on the packets received the program will activate/deactivate various pins/
 # States
 The possible states of the control pendant are:
 ## System Standby Mode
+### Pin States:
+* N2O Fill - LOW Pin      (Solenoid Closed)
+* Purge - LOW Pin         (Solenoid Open)
+* O2 Fill - LOW Pin       (Solenoid Closed)
 
 ## Fill Mode
 
