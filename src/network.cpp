@@ -65,9 +65,9 @@ bool initEthernet() {
 //    watchdog.
 // -----------------------------------------------------------
 void handleTCP() {
-    // --- Watchdog: no GCS input for GCS_TIMEOUT_MS → safe state ---
+// --- Watchdog: no GCS input for GCS_TIMEOUT_MS → safe state ---
     // if (millis() - lastGCSPacketMs > GCS_TIMEOUT_MS) {
-    //     Serial.println("[WATCHDOG] GCS timeout — emergency stop.");
+    //     Serial.println("\n[WATCHDOG] GCS timeout — emergency stop.");
     //     emergencyStop();
     //     // Reset timer so we don't spam the serial console
     //     lastGCSPacketMs = millis();

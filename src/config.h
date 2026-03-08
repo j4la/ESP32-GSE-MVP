@@ -30,7 +30,7 @@
 
 // --- GPIO Pin Assignments ---
 const int GPIO_PIN_n2oValve = 13; 
-const int GPIO_PIN_purge    = 14;  
+const int GPIO_PIN_purge    = 14;
 const int GPIO_PIN_o2Valve  = 32;
 const int GPIO_PIN_fire     = 33;
 const int GPIO_PIN_firePWM  = 5;
