@@ -41,6 +41,7 @@ void inline set_firePWM(bool activate){
 // -----------------------------------------------------------
 //  AttemptIgnition
 //    Pulses the spark output NUM_SPARKS times.
+// i hop ehtis works
 // -----------------------------------------------------------
 void AttemptIgnition() {
     Serial.println("- Attempting ignition...");
