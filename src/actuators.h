@@ -14,7 +14,7 @@ void set_fire(bool activate);
 void set_firePWM(bool activate);
 
 // --- Ignition ---
-void AttemptIgnition();
+void attemptIgnition();
 
 // --- Emergency stop ---
 //  Immediately de-energises every output.

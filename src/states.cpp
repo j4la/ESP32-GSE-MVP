@@ -31,28 +31,60 @@ void executeCommand(command cmd)
                 set_o2Valve(false);
                 set_fire(false);
                 set_firePWM(false);
-                // set pwm pin LOW
             break;
 
         case (command::FILL):
-
+                set_n2oValve(false);
+                set_purge(false);
+                set_o2Valve(false);
+                set_fire(false);
+                set_firePWM(false);
             break;
         case (command::FILL_N2O):
-
+                set_n2oValve(true);
+                set_purge(true);
+                set_o2Valve(false);
+                set_fire(false);
+                set_firePWM(false);
             break;
         case (command::FILL_PURGE):
+                set_n2oValve(false);
+                set_purge(false);
+                set_o2Valve(false);
+                set_fire(false);
+                set_firePWM(false);
 
             break;
         case (command::LAUNCH):
+                set_n2oValve(false);
+                set_purge(true);
+                set_o2Valve(false);
+                set_fire(false);
+                set_firePWM(false);
 
             break;
         case (command::LAUNCH_O2):
+                set_n2oValve(false);
+                set_purge(true);
+                set_o2Valve(true);
+                set_fire(false);
+                set_firePWM(false);
 
             break;
         case (command::LAUNCH_O2_FIRE):
-
+                set_n2oValve(false);
+                set_purge(true);
+                set_o2Valve(true);
+                set_fire(true);
+                attemptIgnition();
+                // set_firePWM(false);
             break;
         case (command::ESTOP):
+                set_n2oValve(false);
+                set_purge(false);
+                set_o2Valve(false);
+                set_fire(false);
+                set_firePWM(false);
 
             break;
 
