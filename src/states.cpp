@@ -11,20 +11,21 @@
 
 // GCS Command
 enum class command : uint8_t {
-    STANDBY         = 0x21,
-    FILL            = 0x03,
+    SYSTEM_ACTIVE   = 0x01,
+    FILL            = 0x23,
     FILL_N2O        = 0x13,
     FILL_PURGE      = 0x83,
     LAUNCH          = 0x05,
     LAUNCH_O2       = 0x45,
     LAUNCH_O2_FIRE  = 0x4D,
+    LAUNCH_FIRE     = 0x0D,
     ESTOP           = 0x00
 };
 
 void executeCommand(command cmd)
 {
     switch (cmd) {
-        case (command::STANDBY):
+        case (command::SYSTEM_ACTIVE):
                 set_n2oValve(DEACTIVATE_PIN);
                 set_purge(DEACTIVATE_PIN);
                 set_o2Valve(DEACTIVATE_PIN);
@@ -78,6 +79,14 @@ void executeCommand(command cmd)
                 attemptIgnition();
                 // set_firePWM(false);
             break;
+        case (command::LAUNCH_FIRE):
+                set_n2oValve(DEACTIVATE_PIN);
+                set_purge(ACTIVATE_PIN);
+                set_o2Valve(DEACTIVATE_PIN);
+                set_fire(ACTIVATE_PIN);
+                attemptIgnition();
+            break;
+
         case (command::ESTOP):
                 set_n2oValve(DEACTIVATE_PIN);
                 set_purge(DEACTIVATE_PIN);
@@ -91,10 +100,9 @@ void executeCommand(command cmd)
         
     
 }
-// Maybe the BYTE_x can be used to obtain an array index and the instructinos can be stored in an array instead of a hash map
 
 /*
-System Standby Mode
+System SYSTEM_ACTIVE Mode
 
 Fill Mode
 
