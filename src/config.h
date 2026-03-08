@@ -22,18 +22,19 @@
 
 // --- Static IP ---
 #define LOCAL_IP        192, 168, 0, 150
+// #define LOCAL_IP        192, 168, 0, 254
 #define GATEWAY_IP      192, 168, 0, 1
 #define SUBNET_MASK     255, 255, 255, 0
 #define PRIMARY_DNS     8, 8, 8, 8
 #define SECONDARY_DNS   1, 1, 1, 1
 
 // --- GPIO Pin Assignments ---
-//  TODO: Fill in correct pin numbers before flashing.
-const int GPIO_PIN_n2oValve = 20;    // Check if Pin 5 or 10
-const int GPIO_PIN_purge    = 19;   // Check if Pin 5 or 10
-const int GPIO_PIN_o2Valve  = 16;
-const int GPIO_PIN_fire     = 15;
-const int GPIO_PIN_firePWM  = 10;
+const int GPIO_PIN_n2oValve = 13; 
+const int GPIO_PIN_purge    = 14;  
+const int GPIO_PIN_o2Valve  = 32;
+const int GPIO_PIN_fire     = 33;
+const int GPIO_PIN_firePWM  = 5;
+
 
 // --- Solenoid logic helpers ---
 //  Pass these to the set_*() functions for readability.

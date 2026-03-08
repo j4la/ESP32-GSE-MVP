@@ -18,29 +18,29 @@
 void set_n2oValve(bool activate) {
     // HIGH = open, LOW = closed
     digitalWrite(GPIO_PIN_n2oValve, activate ? HIGH : LOW);
-    Serial.printf("N2O valve PIN set to: %d\t", activate ? HIGH : LOW);
+    Serial.printf("N2O PIN: %d\t\t", activate ? HIGH : LOW);
 }
 
 void set_o2Valve(bool activate) {
     // HIGH = open, LOW = closed
     digitalWrite(GPIO_PIN_o2Valve, activate ? HIGH : LOW);
-    Serial.printf("O2 valve PIN set to: %d\t", activate ? HIGH : LOW);
+    Serial.printf("O2 PIN: %d\t\t", activate ? HIGH : LOW);
 }
 
 void set_purge(bool activate) {
     // HIGH = closed, LOW = open  (inverted — normally-open valve)
     digitalWrite(GPIO_PIN_purge, activate ? HIGH : LOW);
-    Serial.printf("Purge valve PIN set to: %d\t", activate ? HIGH : LOW);
+    Serial.printf("Purge PIN: %d\t\t", activate ? HIGH : LOW);
 }
 
 void set_fire(bool activate) {
     digitalWrite(GPIO_PIN_fire, activate ? HIGH : LOW);
-    Serial.printf("Fire PIN set to: %d\t", activate ? HIGH : LOW);
+    Serial.printf("Fire PIN: %d\t\t", activate ? HIGH : LOW);
 }
 
 void set_firePWM(bool activate){
     digitalWrite(GPIO_PIN_firePWM, activate ? HIGH : LOW);
-    Serial.printf("Fire PWM valve PIN set to: %d\t", activate ? HIGH : LOW);
+    Serial.printf("Fire PWM PIN: %d\t\t", activate ? HIGH : LOW);
 }
 
 // -----------------------------------------------------------
@@ -49,9 +49,9 @@ void set_firePWM(bool activate){
 // i hop ehtis works
 // -----------------------------------------------------------
 void attemptIgnition() {
-    Serial.println("- Attempting ignition...");
+    Serial.println("\n- Attempting ignition...");
     for (int i = 0; i < NUM_SPARKS; i++) {
-        Serial.println("SPARK");
+        Serial.print("SPARK\t");
         digitalWrite(GPIO_PIN_firePWM, HIGH);
         delay(SPARK_LENGTH);
         digitalWrite(GPIO_PIN_firePWM, LOW);
