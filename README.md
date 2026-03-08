@@ -41,6 +41,7 @@ The possible states of the control pendant are:
 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 |---|---|---|---|---|---|---|---|
 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 |
+
 Hex: 0x21
 
 ## Fill Mode
@@ -54,6 +55,7 @@ Hex: 0x21
 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 |---|---|---|---|---|---|---|---|
 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 |
+
 Hex: 0x03
 
 ## Fill->N2O
@@ -67,6 +69,7 @@ Hex: 0x03
 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 |---|---|---|---|---|---|---|---|
 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 1 |
+
 Hex: 0x13
 
 ## Fill->Purge
@@ -80,6 +83,7 @@ Hex: 0x13
 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 |---|---|---|---|---|---|---|---|
 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 1 |
+
 Hex: 0x83
 
 ## Launch Mode
@@ -93,6 +97,7 @@ Hex: 0x83
 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 |---|---|---|---|---|---|---|---|
 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 1 |
+
 Hex: 0x05
 
 ## Launch->O2
@@ -106,6 +111,7 @@ Hex: 0x05
 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 |---|---|---|---|---|---|---|---|
 | 0 | 1 | 0 | 0 | 0 | 1 | 0 | 1 |
+
 Hex: 0x45
 
 ## Launch->O2->Fire
@@ -119,6 +125,7 @@ Hex: 0x45
 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 |---|---|---|---|---|---|---|---|
 | 0 | 1 | 0 | 0 | 1 | 1 | 0 | 1 |
+
 Hex: 0x4D
 
 ## Estop
@@ -132,7 +139,8 @@ Hex: 0x4D
 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 |---|---|---|---|---|---|---|---|
 | ? | 0 | 0 | 0 | 0 | 0 | 0 | ? |
+
 Hex: ?
 
 # Additions for future:
-* Shift bits from incoming packets from GCS, this allows upgradability. Currently not done given state machine has all possible states accounted for. If individual bits are shifted then state machine can be more modular.s
+* Shift bits from incoming packets from GCS, this allows upgradability. Currently not done given state machine has all possible states accounted for. If individual bits are shifted then state machine can be more modular.
