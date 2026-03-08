@@ -22,7 +22,7 @@ Based on the packets received the program will activate/deactivate various pins/
 * Fire PWM:
     The PWM signal is to activate the sparker.
 
-## Packet Structure
+## Data Byte Structure from GCS Packet
 | Manual Purge Activate (0 = no, 1 = yes) | O2 Fill Activate (0 = no, 1 = yes) | Selector Switch Neutal Position (0 = no, 1 = yes) | N2O Fill Activate (0 = no, 1 = yes) | Ignition FIRE (0 = no, 1 = yes) | Ignition Selected (0 = no, 1 = yes) | Gas Fill Selected (0 = no, 1 = yes) | System Activate (0 = disable, 1 = enabled) |
 |-----------------------------------------|------------------------------------|---------------------------------------------------|-------------------------------------|---------------------------------|-------------------------------------|-------------------------------------|--------------------------------------------|
 | 7 (MSB)                                 | 6                                  | 5                                                 | 4                                   | 3                               | 2                                   | 1                                   | 0 (LSB)                                    |
