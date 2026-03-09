@@ -43,6 +43,14 @@ void set_firePWM(bool activate){
     // Serial.printf("Spark PIN: %d\t\t", activate ? HIGH : LOW);
 }
 
+void set_fillArmPin(bool activate){
+    digitalWrite(GPIO_PIN_fillArm, activate ? HIGH : LOW);
+}
+
+void set_ignArmPin(bool activate){
+    digitalWrite(GPIO_PIN_ignArm, activate ? HIGH : LOW);
+}
+
 // -----------------------------------------------------------
 //  attemptIgnition
 //    Pulses the spark output NUM_SPARKS times.

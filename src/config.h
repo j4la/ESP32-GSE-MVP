@@ -34,7 +34,8 @@ const int GPIO_PIN_purge    = 14;
 const int GPIO_PIN_o2Valve  = 32;
 const int GPIO_PIN_fire     = 33;
 const int GPIO_PIN_firePWM  = 5;
-
+const int GPIO_PIN_fillArm  = 15;
+const int GPIO_PIN_ignArm   = 16;
 
 // --- Solenoid logic helpers ---
 //  Pass these to the set_*() functions for readability.
