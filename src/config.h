@@ -6,6 +6,18 @@
 //  and fire-sequence timing constants.
 // ============================================================
 
+// --- Pins connected to Relays ---
+#define FILL_ARM 15
+#define N2O_TRG 13
+#define PURGE_TRG 14
+#define IGN_ARM 16
+#define O2_TRG 32
+#define FIRE_TRG 33
+#define SPARE_ARM 2
+#define SPARE_TRG 3
+#define FIRE_PWM 4
+#define BOARD_LED 5
+
 // --- Ethernet PHY (Olimex ESP32-PoE-ISO / LAN8710A in RMII mode) ---
 #define ETH_PHY_ADDR    0
 #define ETH_PHY_POWER   12

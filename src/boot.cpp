@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include "boot.h"
+#include "config.h"
 // Bootup sequence
 
 // Manually set GPIO pins low
