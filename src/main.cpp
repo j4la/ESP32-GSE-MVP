@@ -9,8 +9,12 @@
 #include "states.h"
 #include "actuators.h"
 #include "network.h"
+#include "boot.h"
 
 void setup() {
+    // Call script to set all ESP32 pins low
+    setGPIOlow();
+
     // --- GPIO ---
     pinMode(GPIO_PIN_n2oValve, OUTPUT);
     pinMode(GPIO_PIN_purge,    OUTPUT);
@@ -29,6 +33,18 @@ void setup() {
     while (!Serial) {}
 
     Serial.println("\n--- Project Horizon: GSE Firmware ---");
+
+    Serial.println("--- Performing Relay Test ---");
+    relayTest();
+    Serial.println("--- Relay Test Complete ---");
+    for (int i = 0; i < 10; i++)
+    {
+        digitalWrite(BOARD_LED, HIGH);
+        delay(100);
+        digitalWrite(BOARD_LED, LOW);
+        delay(100);
+    }
+
 
     // --- Ethernet / TCP ---
     // initEthernet();
