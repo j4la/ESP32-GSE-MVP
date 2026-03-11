@@ -89,13 +89,13 @@ void relayTest()    {
 
     // FirePWM
     Serial.println("--- Activating FirePWM relay ---");
-    digitalWrite(FIRE_PWM, HIGH);
-    digitalWrite(IGN_ARM, HIGH);
+    digitalWrite(SPARE_TRG, HIGH);
+    digitalWrite(SPARE_ARM, HIGH);
     digitalWrite(BOARD_LED, HIGH);
     delay(1000);
     Serial.println("--- Deactivating FirePWM relay ---");
-    digitalWrite(FIRE_PWM, LOW);
-    digitalWrite(IGN_ARM, LOW);
+    digitalWrite(SPARE_TRG, LOW);
+    digitalWrite(SPARE_ARM, LOW);
     digitalWrite(BOARD_LED, LOW);
     delay(1000);
 

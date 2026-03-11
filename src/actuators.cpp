@@ -39,8 +39,13 @@ void set_fire(bool activate) {
 }
 
 void set_firePWM(bool activate){
-    digitalWrite(GPIO_PIN_firePWM, activate ? HIGH : LOW);
+    digitalWrite(SPARE_TRG, activate ? HIGH : LOW);
+    // digitalWrite(GPIO_PIN_firePWM, activate ? HIGH : LOW);
     // Serial.printf("Spark PIN: %d\t\t", activate ? HIGH : LOW);
+}
+
+void set_spareARM(bool activate){
+    digitalWrite(SPARE_ARM, activate ? HIGH : LOW);
 }
 
 void set_fillArmPin(bool activate){
@@ -57,13 +62,17 @@ void set_ignArmPin(bool activate){
 // -----------------------------------------------------------
 void attemptIgnition() {
     Serial.println("\n- Attempting ignition...");
+    digitalWrite(SPARE_ARM, HIGH);
     for (int i = 0; i < NUM_SPARKS; i++) {
         Serial.print("SPARK\t");
-        digitalWrite(GPIO_PIN_firePWM, HIGH);
+        // digitalWrite(GPIO_PIN_firePWM, HIGH);
+        digitalWrite(SPARE_TRG, HIGH);
         delay(SPARK_LENGTH);
-        digitalWrite(GPIO_PIN_firePWM, LOW);
+        // digitalWrite(GPIO_PIN_firePWM, LOW);
+        digitalWrite(SPARE_TRG, LOW);
         delay(SPARK_INTERVAL);
     }
+    digitalWrite(SPARE_ARM, LOW);
 }
 // -----------------------------------------------------------
 //  emergencyStop
