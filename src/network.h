@@ -17,3 +17,5 @@ bool initEthernet();
 // Call from loop() — handles new connections and incoming data.
 // Triggers GCS command dispatch and watchdog reset.
 void handleTCP();
+
+void checkTimeout(unsigned long *lastPacket);

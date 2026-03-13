@@ -17,6 +17,17 @@ WiFiServer server(TCP_PORT);
 // Timestamp of the last valid GCS packet (used for watchdog).
 static unsigned long lastGCSPacketMs = 0;
 
+void checkTimeout(unsigned long *lastPacket)
+{
+    if (millis() - *lastPacket > GCS_TIMEOUT_MS)
+    {
+        Serial.println("\n[WATCHDOG] GCS timeout — emergency stop.");
+        emergencyStop();
+        // Reset timer so we don't spam the serial console
+        *lastPacket = millis();
+    }
+}
+
 // -----------------------------------------------------------
 //  initEthernet
 // -----------------------------------------------------------
@@ -66,6 +77,8 @@ bool initEthernet() {
 // -----------------------------------------------------------
 void handleTCP() {
 // --- Watchdog: no GCS input for GCS_TIMEOUT_MS → safe state ---
+    checkTimeout(&lastGCSPacketMs);
+
     // if (millis() - lastGCSPacketMs > GCS_TIMEOUT_MS) {
     //     Serial.println("\n[WATCHDOG] GCS timeout — emergency stop.");
     //     emergencyStop();
@@ -74,6 +87,7 @@ void handleTCP() {
     // }
 
     WiFiClient client = server.available();
+    client.setNoDelay(true);
     if (!client) return;
 
     Serial.print("\n[New Connection from ");
@@ -113,6 +127,7 @@ void handleTCP() {
             }
             Serial.println();
         }
+        checkTimeout(&lastGCSPacketMs);
     }
 
     Serial.println("\n[Connection Closed]");

@@ -62,17 +62,15 @@ void set_ignArmPin(bool activate){
 // -----------------------------------------------------------
 void attemptIgnition() {
     Serial.println("\n- Attempting ignition...");
-    digitalWrite(SPARE_ARM, HIGH);
     for (int i = 0; i < NUM_SPARKS; i++) {
         Serial.print("SPARK\t");
-        // digitalWrite(GPIO_PIN_firePWM, HIGH);
-        digitalWrite(SPARE_TRG, HIGH);
+        digitalWrite(GPIO_PIN_firePWM, HIGH);
+        // digitalWrite(SPARE_TRG, HIGH);
         delay(SPARK_LENGTH);
-        // digitalWrite(GPIO_PIN_firePWM, LOW);
-        digitalWrite(SPARE_TRG, LOW);
+        digitalWrite(GPIO_PIN_firePWM, LOW);
+        // digitalWrite(SPARE_TRG, LOW);
         delay(SPARK_INTERVAL);
     }
-    digitalWrite(SPARE_ARM, LOW);
 }
 // -----------------------------------------------------------
 //  emergencyStop
@@ -80,9 +78,12 @@ void attemptIgnition() {
 // -----------------------------------------------------------
 void emergencyStop() {
     Serial.println("[EMERGENCY STOP] Cutting all solenoid outputs.");
-    set_n2oValve(DEACTIVATE_PIN);
-    set_o2Valve(DEACTIVATE_PIN);
-    set_purge(DEACTIVATE_PIN);      // LOW = open (purge flows)
-    set_fire(DEACTIVATE_PIN);
-    set_firePWM(DEACTIVATE_PIN);
+    digitalWrite(FILL_ARM, LOW);
+    digitalWrite(N2O_TRG, LOW);
+    digitalWrite(PURGE_TRG, LOW);
+    digitalWrite(SPARE_ARM, LOW);
+    digitalWrite(IGN_ARM, LOW);
+    digitalWrite(SPARE_TRG, LOW);
+    digitalWrite(FIRE_TRG, LOW);
+    digitalWrite(FIRE_PWM, LOW);
 }

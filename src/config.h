@@ -13,8 +13,8 @@
 #define IGN_ARM 16
 #define O2_TRG 32
 #define FIRE_TRG 33
-#define SPARE_ARM 2
-#define SPARE_TRG 3
+#define SPARE_ARM 3
+#define SPARE_TRG 2
 #define FIRE_PWM 4
 #define BOARD_LED 5
 

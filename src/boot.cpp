@@ -30,15 +30,11 @@ void setGPIOlow()   {
     digitalWrite(13, LOW);
     delay(1000);
 
-    digitalWrite(PURGE_TRG, HIGH);
-    digitalWrite(FILL_ARM, HIGH);
-
     delay(100);
 }
 
 // Tests each relay one at a time
 void relayTest()    {
-
     // N2O
     Serial.println("--- Activating N2O relay ---");
     digitalWrite(N2O_TRG, HIGH);
@@ -47,18 +43,6 @@ void relayTest()    {
     delay(1000);
     Serial.println("--- Deactivating N2O relay ---");
     digitalWrite(N2O_TRG, LOW);
-    digitalWrite(FILL_ARM, LOW);
-    digitalWrite(BOARD_LED, LOW);
-    delay(1000);
-
-    // O2
-    Serial.println("--- Activating O2 relay ---");
-    digitalWrite(O2_TRG, HIGH);
-    digitalWrite(FILL_ARM, HIGH);
-    digitalWrite(BOARD_LED, HIGH);
-    delay(1000);
-    Serial.println("--- Deactivating O2 relay ---");
-    digitalWrite(O2_TRG, LOW);
     digitalWrite(FILL_ARM, LOW);
     digitalWrite(BOARD_LED, LOW);
     delay(1000);
@@ -75,25 +59,25 @@ void relayTest()    {
     digitalWrite(BOARD_LED, LOW);
     delay(1000);
 
-    // Fire
-    Serial.println("--- Activating Fire relay ---");
-    digitalWrite(FIRE_TRG, HIGH);
+    // O2
+    Serial.println("--- Activating O2 relay ---");
+    digitalWrite(O2_TRG, HIGH);
     digitalWrite(IGN_ARM, HIGH);
     digitalWrite(BOARD_LED, HIGH);
     delay(1000);
-    Serial.println("--- Deactivating Fire relay ---");
-    digitalWrite(FIRE_TRG, LOW);
+    Serial.println("--- Deactivating O2 relay ---");
+    digitalWrite(O2_TRG, LOW);
     digitalWrite(IGN_ARM, LOW);
     digitalWrite(BOARD_LED, LOW);
     delay(1000);
 
-    // FirePWM
-    Serial.println("--- Activating FirePWM relay ---");
+// Spare
+    Serial.println("--- Activating Spare relay ---");
     digitalWrite(SPARE_TRG, HIGH);
     digitalWrite(SPARE_ARM, HIGH);
     digitalWrite(BOARD_LED, HIGH);
     delay(1000);
-    Serial.println("--- Deactivating FirePWM relay ---");
+    Serial.println("--- Deactivating Spare relay ---");
     digitalWrite(SPARE_TRG, LOW);
     digitalWrite(SPARE_ARM, LOW);
     digitalWrite(BOARD_LED, LOW);
