@@ -15,47 +15,6 @@
 //      N2O    solenoid : CLOSED (HIGH opens it)
 // -----------------------------------------------------------
 
-void set_n2oValve(bool activate) {
-    // HIGH = open, LOW = closed
-    digitalWrite(GPIO_PIN_n2oValve, activate ? HIGH : LOW);
-    // Serial.printf("N2O PIN: %d\t\t", activate ? HIGH : LOW);
-}
-
-void set_o2Valve(bool activate) {
-    // HIGH = open, LOW = closed
-    digitalWrite(GPIO_PIN_o2Valve, activate ? HIGH : LOW);
-    // Serial.printf("O2 PIN: %d\t\t", activate ? HIGH : LOW);
-}
-
-void set_purge(bool activate) {
-    // HIGH = closed, LOW = open  (inverted — normally-open valve)
-    digitalWrite(GPIO_PIN_purge, activate ? HIGH : LOW);
-    // Serial.printf("Purge PIN: %d\t\t", activate ? HIGH : LOW);
-}
-
-void set_fire(bool activate) {
-    digitalWrite(GPIO_PIN_fire, activate ? HIGH : LOW);
-    // Serial.printf("Fire PIN: %d\t\t", activate ? HIGH : LOW);
-}
-
-void set_firePWM(bool activate){
-    digitalWrite(SPARE_TRG, activate ? HIGH : LOW);
-    // digitalWrite(GPIO_PIN_firePWM, activate ? HIGH : LOW);
-    // Serial.printf("Spark PIN: %d\t\t", activate ? HIGH : LOW);
-}
-
-void set_spareARM(bool activate){
-    digitalWrite(SPARE_ARM, activate ? HIGH : LOW);
-}
-
-void set_fillArmPin(bool activate){
-    digitalWrite(GPIO_PIN_fillArm, activate ? HIGH : LOW);
-}
-
-void set_ignArmPin(bool activate){
-    digitalWrite(GPIO_PIN_ignArm, activate ? HIGH : LOW);
-}
-
 // -----------------------------------------------------------
 //  attemptIgnition
 //    Pulses the spark output NUM_SPARKS times.
@@ -64,11 +23,13 @@ void attemptIgnition() {
     Serial.println("\n- Attempting ignition...");
     for (int i = 0; i < NUM_SPARKS; i++) {
         Serial.print("SPARK\t");
-        digitalWrite(GPIO_PIN_firePWM, HIGH);
-        // digitalWrite(SPARE_TRG, HIGH);
+        // digitalWrite(GPIO_PIN_firePWM, HIGH);
+        digitalWrite(SPARE_TRG, HIGH);
+        digitalWrite(SPARE_ARM, HIGH);
         delay(SPARK_LENGTH);
-        digitalWrite(GPIO_PIN_firePWM, LOW);
-        // digitalWrite(SPARE_TRG, LOW);
+        // digitalWrite(GPIO_PIN_firePWM, LOW);
+        digitalWrite(SPARE_TRG, LOW);
+        digitalWrite(SPARE_ARM, LOW);
         delay(SPARK_INTERVAL);
     }
 }

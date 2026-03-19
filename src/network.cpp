@@ -87,8 +87,9 @@ void handleTCP() {
     // }
 
     WiFiClient client = server.available();
-    client.setNoDelay(true);
+    
     if (!client) return;
+    client.setNoDelay(true);
 
     Serial.print("\n[New Connection from ");
     Serial.print(client.remoteIP());
