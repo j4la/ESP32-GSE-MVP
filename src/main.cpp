@@ -41,7 +41,7 @@ void setup() {
     // --- Ethernet / TCP ---
     if (!initEthernet()) {
         Serial.println("Fatal: Ethernet init failed. Halting.");
-        while (true) { delay(1000); }
+        while (true) { delay(1000); }   // Illuminate LEDs, somehow signal that Ethernet isn't working
     }
 }
 
