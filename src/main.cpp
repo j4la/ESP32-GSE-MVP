@@ -39,8 +39,6 @@ void setup() {
     executeCommand(command::SYSTEM_ACTIVE);
 
     // --- Ethernet / TCP ---
-    // initEthernet();
-
     if (!initEthernet()) {
         Serial.println("Fatal: Ethernet init failed. Halting.");
         while (true) { delay(1000); }

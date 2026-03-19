@@ -23,11 +23,9 @@ void attemptIgnition() {
     Serial.println("\n- Attempting ignition...");
     for (int i = 0; i < NUM_SPARKS; i++) {
         Serial.print("SPARK\t");
-        // digitalWrite(GPIO_PIN_firePWM, HIGH);
         digitalWrite(SPARE_TRG, HIGH);
         digitalWrite(SPARE_ARM, HIGH);
         delay(SPARK_LENGTH);
-        // digitalWrite(GPIO_PIN_firePWM, LOW);
         digitalWrite(SPARE_TRG, LOW);
         digitalWrite(SPARE_ARM, LOW);
         delay(SPARK_INTERVAL);

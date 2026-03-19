@@ -34,25 +34,10 @@
 
 // --- Static IP ---
 #define LOCAL_IP        192, 168, 0, 150
-// #define LOCAL_IP        192, 168, 0, 254
 #define GATEWAY_IP      192, 168, 0, 1
 #define SUBNET_MASK     255, 255, 255, 0
 #define PRIMARY_DNS     8, 8, 8, 8
 #define SECONDARY_DNS   1, 1, 1, 1
-
-// --- GPIO Pin Assignments ---
-const int GPIO_PIN_n2oValve = 13; 
-const int GPIO_PIN_purge    = 14;
-const int GPIO_PIN_o2Valve  = 32;
-const int GPIO_PIN_fire     = 33;
-const int GPIO_PIN_firePWM  = 5;
-const int GPIO_PIN_fillArm  = 15;
-const int GPIO_PIN_ignArm   = 16;
-
-// --- Solenoid logic helpers ---
-//  Pass these to the set_*() functions for readability.
-const bool ACTIVATE_PIN   = true;
-const bool DEACTIVATE_PIN = false;
 
 // --- Fire / ignition sequence timing (all in ms) ---
 #define PRE_PURGE_DELAY     1500    // Delay until post-fire N2 purge

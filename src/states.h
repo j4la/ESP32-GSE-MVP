@@ -18,19 +18,3 @@ enum class command : uint8_t {
 };
 
 void executeCommand(command cmd);
-
-// --- FSM States ---
-enum State {
-    STATE_standby    = 0,
-    STATE_fuelActive = 1,
-    STATE_ignActive  = 2,
-};
-
-// --- FSM Actions ---
-enum Action {
-    ACT_neutral = 0,
-    ACT_fill    = 1,
-    ACT_purge   = 2,
-    ACT_fire    = 3,
-    ACT_O2      = 4,
-};

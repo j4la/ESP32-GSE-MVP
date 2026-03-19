@@ -12,7 +12,7 @@
 void executeCommand(command cmd)
 {
     // Deativate everything by default
-    // TODO convert to port mask method
+    // TODO convert to port mask method (More relevant in STM32 version)
     digitalWrite(N2O_TRG, LOW);
     digitalWrite(O2_TRG, LOW);
     digitalWrite(FIRE_TRG, LOW);
