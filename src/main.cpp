@@ -43,6 +43,14 @@ void setup() {
         Serial.println("Fatal: Ethernet init failed. Halting.");
         while (true) { delay(1000); }   // Illuminate LEDs, somehow signal that Ethernet isn't working
     }
+
+    // --- MDNS ---
+    // Allowing access to ESP32 with: http://gse.local
+    if (!initMDNS())    {
+        while(1) {
+            delay(1000);
+        }
+    }
 }
 
 void loop() {

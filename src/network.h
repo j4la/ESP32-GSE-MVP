@@ -14,6 +14,8 @@ extern WiFiServer server;
 // Returns true on success.
 bool initEthernet();
 
+bool initMDNS();
+
 // Call from loop() — handles new connections and incoming data.
 // Triggers GCS command dispatch and watchdog reset.
 void handleTCP();

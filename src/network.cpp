@@ -7,6 +7,7 @@
 #include <ETH.h>
 #include <WiFiClient.h>
 #include <WiFiServer.h>
+#include <ESPmDNS.h>
 #include "network.h"
 #include "config.h"
 #include "actuators.h"
@@ -66,6 +67,15 @@ bool initEthernet() {
     Serial.printf("TCP server listening on port %d\n", TCP_PORT);
 
     lastGCSPacketMs = millis();
+    return true;
+}
+
+bool initMDNS() {
+    if (!MDNS.begin(mdnsName)) {
+        Serial.println("Error setting up MDNS responder!");
+        return false;
+    }
+    MDNS.addService("_http", "_tcp", 80);
     return true;
 }
 

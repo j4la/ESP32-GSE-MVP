@@ -52,3 +52,5 @@
 
 // --- Watchdog / safety ---
 #define GCS_TIMEOUT_MS      5000    // Cut solenoids if no GCS input for this long
+
+#define mdnsName "gse"              // ESP Multicast DNS name
